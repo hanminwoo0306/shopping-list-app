@@ -231,7 +231,7 @@
     const errorMsg   = document.getElementById('errorMsg');
 
     input.addEventListener('keydown', e => {
-      if (e.key === 'Enter') addItem();
+      if (e.key === 'Enter' && !e.isComposing) addItem();
     });
 
     function showError(msg) {
