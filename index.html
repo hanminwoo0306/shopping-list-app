@@ -219,7 +219,7 @@
     const SUPABASE_URL = 'https://dmutqovxyorepgvtzzqv.supabase.co';
     const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRtdXRxb3Z4eW9yZXBndnR6enF2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQyOTYwNTcsImV4cCI6MjA4OTg3MjA1N30.-TJ_t6gkJvT7kb8aDfkuSY0Fi4BPExjLI-XYONu2G2g';
 
-    const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    const db = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
     const input      = document.getElementById('itemInput');
     const addBtn     = document.getElementById('addBtn');
@@ -276,7 +276,7 @@
     }
 
     async function loadItems() {
-      const { data, error } = await supabase
+      const { data, error } = await db
         .from('shopping_items')
         .select('*')
         .order('created_at', { ascending: false });
